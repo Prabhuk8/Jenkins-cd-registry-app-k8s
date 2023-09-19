@@ -15,9 +15,5 @@ spec:
       containers:
         - name: register-app
           image: opspractise/jenkins-ci-register-app:1.0.0-13
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "256m"
           ports:
             - containerPort: 8080
