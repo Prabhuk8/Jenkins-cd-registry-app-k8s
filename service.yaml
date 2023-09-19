@@ -5,11 +5,10 @@ metadata:
   labels:
     app: register-app 
 spec:
+  type: nodePort
   selector:
     app: register-app
 
   ports:
     - port: 8080
       targetPort: 8080
-
-  type: nodePort
