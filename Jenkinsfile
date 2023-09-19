@@ -11,7 +11,7 @@ pipeline {
         }
         stage("checkout from scm") {
             steps {
-                git branch: 'main', credentialsId: 'github-cd-token', url: 'https://github.com/Prabhuk8/Jenkins-cd-registry-app-k8s'
+                git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/Prabhuk8/Jenkins-cd-registry-app-k8s'
             }
         }
         stage("Update the Deployment Tags") {
@@ -31,7 +31,7 @@ pipeline {
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github-cd-token', gitToolName: 'Default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: 'github-cred', gitToolName: 'Default')]) {
                   sh "git push https://github.com/Prabhuk8/Jenkins-cd-registry-app-k8s main"
                 }
            }
